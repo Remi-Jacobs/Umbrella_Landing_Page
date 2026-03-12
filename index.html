@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrella — One App for All of Europe</title>
+    <link rel="icon" href="favicon_io/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent: #9333ea;
+            --accent-light: #c084fc;
+            --text: #faf8ff;
+            --muted: rgba(220, 210, 255, 0.75);
+            --border: rgba(200, 180, 255, 0.2);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
+            color: var(--text);
+
+            /*
+            ============================================================
+              ADD YOUR MAP HERE
+              Replace the background-color below with your image:
+
+              background-image: url('your-europe-map.jpg');
+              background-size: cover;
+              background-position: center;
+
+              The card will float transparently over the top of it.
+            ============================================================
+            */
+            background-color: #1a0a3d;
+        }
+
+        /* Phone-style frosted card */
+        .card {
+            width: 100%;
+            max-width: 400px;
+            background: rgba(12, 4, 32, 0.68);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid var(--border);
+            border-radius: 36px;
+            padding: 52px 36px 44px;
+            text-align: center;
+            box-shadow:
+                0 40px 80px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.07);
+            animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(147, 51, 234, 0.18);
+            border: 1px solid rgba(192, 132, 252, 0.28);
+            padding: 7px 16px;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 32px;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            background: #4ade80;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #4ade80;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.3; }
+        }
+
+        /* Brand block — stacked, centered */
+        .brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .brand img {
+            height: 110px;
+            width: auto;
+            filter: drop-shadow(0 0 24px rgba(192, 132, 252, 0.7));
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3.4rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            text-align: center;
+            background: linear-gradient(160deg, #ffffff 30%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Headline */
+        .headline {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .headline em {
+            font-style: normal;
+            color: var(--accent-light);
+        }
+
+        .subtext {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: var(--muted);
+            margin-bottom: 36px;
+            font-weight: 300;
+        }
+
+        /* CTA */
+        .cta-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--accent);
+            color: #fff;
+            padding: 15px 36px;
+            font-size: 0.98rem;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+            text-decoration: none;
+            border-radius: 100px;
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            box-shadow: 0 0 28px rgba(147, 51, 234, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+            transition: all 0.25s ease;
+            margin-bottom: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background: #a855f7;
+            box-shadow: 0 0 44px rgba(147, 51, 234, 0.6);
+        }
+
+        .cta-button:active { transform: translateY(-1px); }
+
+        .arrow { transition: transform 0.25s ease; }
+        .cta-button:hover .arrow { transform: translateX(4px); }
+
+        .launch-note {
+            font-size: 0.76rem;
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
+
+        /* Divider */
+        .divider {
+            width: 36px;
+            height: 1px;
+            background: var(--border);
+            margin: 0 auto 24px;
+        }
+
+        /* Social */
+        .social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(147, 51, 234, 0.2);
+            border-color: rgba(192, 132, 252, 0.5);
+            color: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(147, 51, 234, 0.25);
+        }
+
+        .social-link svg {
+            width: 17px;
+            height: 17px;
+            fill: currentColor;
+        }
+
+        .social-sep {
+            width: 1px;
+            height: 18px;
+            background: var(--border);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <div class="badge">
+            <span class="badge-dot"></span>
+            Coming June – July 2026
+        </div>
+
+        <div class="brand">
+            <img src="Umbrellalogo.png" alt="Umbrella logo">
+            <h1>Umbrella</h1>
+        </div>
+
+        <p class="headline">Stop juggling <em>5 apps</em><br>to travel across Europe</p>
+
+        <p class="subtext">
+            One app. Every train, bus & flight.<br>
+            AI-optimized routes built around your journey.
+        </p>
+
+        <a href="https://forms.gle/h4hJe7XBoAAiJUoX6" class="cta-button" target="_blank" rel="noopener noreferrer">
+            Get Early Access <span class="arrow">→</span>
+        </a>
+        <p class="launch-note">Free to join · No spam · Unsubscribe anytime</p>
+
+        <div class="divider"></div>
+
+        <div class="social">
+            <!-- Email: replace with your address -->
+            <a href="mailto:umbrella42.project@gmail.com" class="social-link" aria-label="Email">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+
+            <div class="social-sep"></div>
+
+            <!-- LinkedIn: replace href with your profile URL -->
+            <a href="https://www.linkedin.com/company/umbrella-travel/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+
+            <div class="social-sep"></div>
+
+            <!-- Instagram: replace href with your profile URL -->
+            <a href="https://instagram.com" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
