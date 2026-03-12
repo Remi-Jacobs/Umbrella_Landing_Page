@@ -9,8 +9,6 @@ It is lightweight, fast to deploy, and easy to customize.
 
 ## Preview
 
-Add a screenshot named `preview.png` in the project root, then GitHub will render this image:
-
 ![Umbrella Landing Page Preview](preview.png)
 
 ## Features
